@@ -19,4 +19,6 @@ dependencies {
     compile('com.fasterxml.jackson.core:jackson-databind:2.0.1')
     compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
 
+    compile('com.google.api-client:google-api-client:1.23.0')
+
 }

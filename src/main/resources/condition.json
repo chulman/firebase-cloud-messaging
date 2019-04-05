@@ -1,0 +1,27 @@
+{
+	"message": {
+		"condition":"'CMCH' in topics || 'NOTI' in topics || 'ALL' in topics",
+		
+		"notification": {
+			"title": "test",
+			"body": "Topic Test"
+		},
+		
+		"data":	{
+		  		"message":"Android Test"
+		   	},
+		
+		"android" : {	
+		   "priority":"high"
+		   
+	   	},	
+		"apns": {
+			
+			"payload": {
+					"aps": {
+					"badge": 10
+					}
+			}
+		}
+	}
+}
