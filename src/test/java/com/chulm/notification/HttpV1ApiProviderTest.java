@@ -1,16 +1,12 @@
 package com.chulm.notification;
 
 import com.chulm.notification.firebase.service.HttpV1Provder;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.http.protocol.UriPatternMatcher;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class HttpV1ApiProviderTest {
 
@@ -22,17 +18,17 @@ public class HttpV1ApiProviderTest {
         /**
          * Set Firebase Admin sdk json files Path.
          */
-        String fileName = "";
+        String fileName = "gcmtest-ee53d-firebase-adminsdk-4e1l7-98c8fd311f.json";
         String adminFiles = System.getProperty("user.dir") + "/src/main/resources/" + fileName;
 
         try {
             /**
              * Input your Firebase Project Name.
              */
-            String projectName = "";
+            String projectName = "gcmtest-ee53d";
             HttpV1Provder v1_provder = new HttpV1Provder(adminFiles, projectName);
             String response = v1_provder.testSend();
-
+            System.out.println(response);
             Map<String,String> responseMap = mapper.readValue(response, Map.class);
 
             Assert.assertTrue(responseMap.keySet().contains("name"));

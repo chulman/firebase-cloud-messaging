@@ -69,12 +69,15 @@ public class HttpV1Provder {
         dataMap.put("title","title");
         dataMap.put("body","body");
 
-        notificationMap.put("condition","'CMCH' in topics || 'NOTI' in topics || 'ALL' in topics");
-        notificationMap.put("notification",dataMap);
 
+        notificationMap.put("notification",dataMap);
+        notificationMap.put("token","APA91bGU0aVG9G1fAVLrv_B5WUrdpikBG3T1mwdmcNgu_5Qv2FRr63rnrN5TkZsHqRhAbQzYMa1dCsCJKfKMLaKj0IYGZ3UHYHFbxvsnjiwMhtUdDNbsesO6rzZUN1_SMgRGRpslRR44");
+//        notificationMap.put("condition","'CMCH' in topics || 'NOTI' in topics || 'ALL' in topics");
         messageMap.put("message", notificationMap);
 
+
         String payload = MAPPER.writeValueAsString(messageMap);
+        System.out.println(payload);
         os.write(payload.getBytes(Charset.defaultCharset()));
         os.flush();
         os.close();
@@ -83,17 +86,16 @@ public class HttpV1Provder {
     }
 
     public String response() throws IOException {
+        String reads = "";
         BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        String inputLine = "";
+        StringBuffer responseBuffer = new StringBuffer();
 
-        StringBuffer response = new StringBuffer();
-
-        while ((inputLine = reader.readLine()) != null) {
-            response.append(inputLine);
+        while ((reads = reader.readLine()) != null) {
+            responseBuffer.append(reads);
         }
 
         reader.close();
 
-        return response.toString();
+        return responseBuffer.toString();
     }
 }

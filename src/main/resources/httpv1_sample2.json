@@ -1,7 +1,7 @@
 {
 	"message": {
-		"condition":"'CMCH' in topics || 'NOTI' in topics || 'ALL' in topics",
-		
+		"to":"APA91bGU0aVG9G1fAVLrv_B5WUrdpikBG3T1mwdmcNgu_5Qv2FRr63rnrN5TkZsHqRhAbQzYMa1dCsCJKfKMLaKj0IYGZ3UHYHFbxvsnjiwMhtUdDNbsesO6rzZUN1_SMgRGRpslRR44",
+
 		"notification": {
 			"title": "test",
 			"body": "Topic Test"
